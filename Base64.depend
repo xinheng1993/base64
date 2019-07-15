@@ -1,0 +1,33 @@
+# depslib dependency file v1.0
+1563166424 source:c:\project\c\base64\main.c
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	"readAndwrite.h"
+	"tools.h"
+	"base64Table.h"
+
+1563166651 source:c:\project\c\base64\readandwrite.c
+	"readAndwrite.h"
+
+1563166441 c:\project\c\base64\readandwrite.h
+	<unistd.h>
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+
+1563152034 source:c:\project\c\base64\tools.c
+	"tools.h"
+
+1563151532 c:\project\c\base64\tools.h
+	<stdlib.h>
+
+1563166169 c:\project\c\base64\base64table.h
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<stdint.h>
+
+1563168812 source:c:\project\c\base64\base64table.c
+	"base64Table.h"
+
