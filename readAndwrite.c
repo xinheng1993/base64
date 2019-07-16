@@ -4,7 +4,7 @@
 char* readFromfile (char* fileName){
     FILE* fp;
 
-    printf("open file: %s\n\n",fileName);
+    printf("open file: \n\n %s\n\n",fileName);
     if((fp=fopen(fileName,READMODEL)) == 0){
         perror("open file falied");
         return;
@@ -33,12 +33,12 @@ char* readFromfile (char* fileName){
 
 void writeTofile(char* fileName, char* content){
     FILE* fp;
-
-    printf("write to file: %s\n\n",fileName);
+    
     if((fp=fopen(fileName,WRITEMODEL)) == 0){
         perror("open file falied");
         return;
     }
     fprintf(fp,"%s",content);
+    printf("save to file: \n\n %s\n\n",fileName);
     fclose(fp);
 }
