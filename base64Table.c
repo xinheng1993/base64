@@ -87,12 +87,13 @@ char* decode(char* input){
             output_len -= 1;
         }
     }
-    char* temp_o = (char* )realloc(original,(output_len+1)*sizeof(char));
-    if(temp_o == 0){
+    temp = (char* )realloc(original,(output_len+1)*sizeof(char));
+    printf("temp:%d",strlen(temp));
+    if(temp == 0){
         fprintf(stderr, "realloc failed");
         return 0;
     }
-    temp_o[output_len+1] = '\0';
-    original = temp_o;
+    temp[output_len+1] = '\0';
+    original = temp;
     return original;
 }
