@@ -55,12 +55,12 @@ int main(int argc, char* argv[])
         return 0;
     }
 
-    //setup output string
-
-    //write to file
-    writeTofile(outFilePath,result);
     //show result on screen
     printf("dest:\n    %s\n",result);
+    
+    //write to file
+    writeTofile(outFilePath,result);
+
     //free memory
     free(input);
     free(result);
