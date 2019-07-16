@@ -7,7 +7,7 @@ char* readFromfile (char* fileName){
     printf("open file: \n\n %s\n\n",fileName);
     if((fp=fopen(fileName,READMODEL)) == 0){
         perror("open file falied");
-        return;
+        return 0;
     }
     int c;
     char* content;
