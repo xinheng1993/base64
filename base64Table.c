@@ -82,9 +82,17 @@ char* decode(char* input){
         original[j++]= (char)(char2<<6 | char3);
     }
     for(i=0;i<output_len;++i){
-        if(original[i] == '\0')
-            memmove(&original[i], &original[i + 1], output_len - i); //decode string contains terminator '\0' and remove it
+        if(original[i] < 1 || original[i]>127){
+            memmove(&original[i], &original[i + 1], output_len - i);//decode string contains terminator '\0' and remove it
+            output_len -= 1;
+        }
     }
-    original[i] = '\0';
+    char* temp_o = (char* )realloc(original,(output_len+1)*sizeof(char));
+    if(temp_o == 0){
+        fprintf(stderr, "realloc failed");
+        return 0;
+    }
+    temp_o[output_len+1] = '\0';
+    original = temp_o;
     return original;
 }
