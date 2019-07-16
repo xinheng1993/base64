@@ -35,6 +35,7 @@ int main(int argc, char* argv[])
     //get input string
     char* input = readFromfile(inFilePath);
 
+    printf("src:\n    %s\n\n",input);
     char* result;
 
     //set lable according to seconde command
@@ -55,15 +56,13 @@ int main(int argc, char* argv[])
     }
 
     //setup output string
-    char* output = malloc((strlen(result)+1)*sizeof(char));
-    strcpy(output,result);
 
     //write to file
-    writeTofile(outFilePath,output);
+    writeTofile(outFilePath,result);
     //show result on screen
-    printf("%s\n",output);
+    printf("dest:\n    %s\n",result);
     //free memory
     free(input);
-    free(output);
+    free(result);
     return 0;
 }

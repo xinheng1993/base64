@@ -61,7 +61,6 @@ char* decode(char* input){
     if(temp == 0)
         fprintf(stderr,"memory allocation failed, check the input string");
     strcpy(temp,input);
-
     long output_len;
     if(strstr(temp,"=="))
         output_len = size_of_input/4*3 - 2;
@@ -69,7 +68,6 @@ char* decode(char* input){
         output_len = size_of_input/4*3 - 1;
     else
         output_len = size_of_input/4*3;
-
     char* original = malloc(sizeof(char)*output_len + 1);
     int i;
     int j = 0;
@@ -83,6 +81,10 @@ char* decode(char* input){
         original[j++]= (char)(char1<<4 | char2>>2);
         original[j++]= (char)(char2<<6 | char3);
     }
-    original[j] = '\0';
+    for(i=0;i<output_len;++i){
+        if(original[i] == '\0')
+            memmove(&original[i], &original[i + 1], output_len - i); //decode string contains terminator '\0' and remove it
+    }
+    original[i] = '\0';
     return original;
 }
